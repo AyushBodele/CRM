@@ -41,14 +41,16 @@ export default function App() {
     <div className="min-h-screen bg-[#F5F5F7]">
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <div className="ml-[260px]">
+      {/* md+ gets left margin for sidebar; mobile gets top padding for top bar + bottom padding for bottom nav */}
+      <div className="md:ml-[260px] pt-16 md:pt-0 pb-20 md:pb-0">
         <Header activeTab={activeTab} />
 
-        <main className="p-8">
+        <main className="p-4 md:p-8">
           {activeTab === 'Dashboard' && (
             <>
-              <div className="grid grid-cols-12 gap-6 mb-6">
-                <div className="col-span-4">
+              {/* Row 1: Metric cards — stack on mobile, 3-col on desktop */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-4 md:mb-6">
+                <div>
                   <MetricCard
                     title="Revenue"
                     value="₹98,86,658"
@@ -58,7 +60,7 @@ export default function App() {
                     icon={DollarSign}
                   />
                 </div>
-                <div className="col-span-4">
+                <div>
                   <MetricCard
                     title="Costs"
                     value="₹48,91,125"
@@ -68,7 +70,7 @@ export default function App() {
                     icon={ShoppingCart}
                   />
                 </div>
-                <div className="col-span-4">
+                <div className="sm:col-span-2 lg:col-span-1">
                   <Card className="h-full">
                     <CardHeader className="mb-4">
                       <h3 className="text-[18px] font-semibold text-[#111111]">Quick Stats</h3>
@@ -93,11 +95,12 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-12 gap-6 mb-6">
-                <div className="col-span-8">
+              {/* Row 2: Chart + Order Status — stack on mobile */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 mb-4 md:mb-6">
+                <div className="lg:col-span-8">
                   <SalesChart />
                 </div>
-                <div className="col-span-4">
+                <div className="lg:col-span-4">
                   <Card>
                     <CardHeader className="mb-4">
                       <h3 className="text-[18px] font-semibold text-[#111111]">Order Status</h3>
@@ -109,7 +112,7 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="mb-6">
+              <div className="mb-4 md:mb-6">
                 <ProjectsTable />
               </div>
             </>

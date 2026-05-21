@@ -109,30 +109,30 @@ export function Staff() {
   });
 
   return (
-    <div className="flex flex-col gap-6 h-[calc(100vh-140px)] overflow-y-auto pr-2">
+    <div className="flex flex-col gap-6 overflow-y-auto pr-1 md:pr-2">
       {/* Upper header */}
-      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-5 border-b border-[#EAEAEA] pb-6">
+      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 border-b border-[#EAEAEA] pb-5 md:pb-6">
         <div>
-          <h3 className="text-[24px] font-bold text-[#111111]">Staff & Workshop Management</h3>
-          <p className="text-sm font-semibold text-[#666666] mt-1">Manage showroom representatives, master craftsmen, and delivery coordinators</p>
+          <h3 className="text-[20px] md:text-[24px] font-bold text-[#111111]">Staff & Workshop Management</h3>
+          <p className="text-xs md:text-sm font-semibold text-[#666666] mt-1">Manage showroom representatives, master craftsmen, and delivery coordinators</p>
         </div>
         <Button
           variant="primary"
           icon={<UserPlus className="w-4 h-4" />}
-          className="!px-6 !py-3 font-bold select-none"
+          className="!px-5 md:!px-6 !py-2.5 md:!py-3 font-bold select-none self-start xl:self-auto"
         >
           Add Staff Member
         </Button>
       </div>
 
-      {/* Role Filter Pills - ENLARGED FONTS */}
-      <div className="flex gap-2.5 flex-wrap mb-4">
+      {/* Role Filter Pills — scrollable on mobile */}
+      <div className="flex gap-2 flex-nowrap overflow-x-auto scrollbar-none pb-1 mb-2 md:mb-4 md:flex-wrap">
         {['All', 'Sales Representative', 'Master Carpenter', 'Showroom Manager', 'Delivery Coordinator'].map(role => (
           <Button
             key={role}
             onClick={() => setSelectedRole(role)}
             variant={selectedRole === role ? 'primary' : 'outline'}
-            className="!px-5 !py-2.5 rounded-full text-[14px] font-bold shadow-sm select-none active:scale-[0.98]"
+            className="!px-4 md:!px-5 !py-2 md:!py-2.5 rounded-full text-[12px] md:text-[14px] font-bold shadow-sm select-none active:scale-[0.98] whitespace-nowrap flex-shrink-0"
           >
             {role === 'All' ? 'All Roles' : role + 's'}
           </Button>

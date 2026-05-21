@@ -190,7 +190,8 @@ export function Clients({ deals, setDeals }: ClientsProps) {
       </div>
 
       {/* Table grid */}
-      <div className="overflow-x-auto border border-[#EAEAEA] rounded-2xl">
+      <div className="overflow-x-auto border border-[#EAEAEA] rounded-2xl -mx-1">
+        <div className="min-w-[700px]">
         <table className="w-full">
           <thead>
             <tr className="border-b border-[#EAEAEA] bg-[#F5F5F7]/50">
@@ -278,6 +279,7 @@ export function Clients({ deals, setDeals }: ClientsProps) {
             )}
           </tbody>
         </table>
+        </div>
       </div>
     </Card>
   );

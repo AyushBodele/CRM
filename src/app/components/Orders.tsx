@@ -105,16 +105,16 @@ export function Orders() {
   });
 
   return (
-    <div className="flex flex-col gap-6 h-[calc(100vh-140px)] overflow-y-auto pr-2">
+    <div className="flex flex-col gap-6 overflow-y-auto pr-1 md:pr-2">
       {/* Title & Filters */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#EAEAEA] pb-4">
         <div>
-          <h3 className="text-[20px] font-bold text-[#111111]">Order Fulfillment</h3>
-          <p className="text-sm text-[#A0A0A0]">Track Oak & Chisel furniture orders, dispatch status, and deliveries</p>
+          <h3 className="text-[18px] md:text-[20px] font-bold text-[#111111]">Order Fulfillment</h3>
+          <p className="text-xs md:text-sm text-[#A0A0A0]">Track Oak & Chisel furniture orders, dispatch status, and deliveries</p>
         </div>
 
-        {/* Filter Badges */}
-        <div className="flex gap-2 bg-[#F5F5F7] p-1.5 rounded-2xl self-start md:self-auto shadow-sm">
+        {/* Filter Badges — scrollable on mobile */}
+        <div className="flex gap-2 bg-[#F5F5F7] p-1.5 rounded-2xl self-start shadow-sm overflow-x-auto scrollbar-none">
           {['All', 'Processing', 'In Transit', 'Delivered'].map((filter) => (
             <Button
               key={filter}
@@ -123,7 +123,7 @@ export function Orders() {
                 setSelectedOrderDetail(null);
               }}
               variant={activeFilter === filter ? 'primary' : 'ghost'}
-              className="!px-4 !py-2 text-xs font-bold rounded-xl active:scale-95 shadow-sm"
+              className="!px-3 md:!px-4 !py-2 text-xs font-bold rounded-xl active:scale-95 shadow-sm whitespace-nowrap flex-shrink-0"
             >
               {filter}
             </Button>
@@ -131,21 +131,22 @@ export function Orders() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 md:gap-8">
         {/* Orders Table */}
         <Card className="xl:col-span-2 flex flex-col gap-4">
-          <CardHeader className="mb-2">
+          <CardHeader className="mb-2 flex-col sm:flex-row gap-3 sm:gap-0">
             <h4 className="font-bold text-lg text-[#111111]">Booked Orders ({filteredOrders.length})</h4>
             <Input
               type="text"
               placeholder="Search Order ID..."
               icon={<Search className="w-4 h-4 text-[#A0A0A0]" />}
-              className="!h-9 !py-1 w-52 text-xs"
+              className="!h-9 !py-1 w-full sm:w-52 text-xs"
             />
           </CardHeader>
 
           <CardBody>
             <div className="overflow-x-auto border border-[#EAEAEA] rounded-2xl">
+              <div className="min-w-[520px]">
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-[#EAEAEA] bg-[#F5F5F7]/50">
@@ -180,6 +181,7 @@ export function Orders() {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
           </CardBody>
         </Card>

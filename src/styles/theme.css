@@ -182,3 +182,24 @@
     line-height: 1.5;
   }
 }
+
+/* ── Mobile Responsive Utilities ─────────────────────────────────────────── */
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Safe area padding for bottom nav on iOS notch devices */
+.safe-area-pb {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+/* Prevent body scroll when mobile drawer is open */
+body.drawer-open {
+  overflow: hidden;
+}

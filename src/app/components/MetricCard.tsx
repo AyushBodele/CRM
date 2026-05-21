@@ -18,19 +18,19 @@ export function MetricCard({ title, value, change, changeType, period, icon: Ico
 
   return (
     <Card className="h-full">
-      <CardHeader className="mb-4">
+      <CardHeader className="mb-4 flex-wrap gap-2">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-xl bg-[#6A4A3C]/10 flex items-center justify-center">
             <Icon className="w-4 h-4 text-[#6A4A3C]" />
           </div>
-          <h3 className="text-[18px] font-semibold text-[#111111] whitespace-nowrap">{title}</h3>
+          <h3 className="text-[16px] md:text-[18px] font-semibold text-[#111111] whitespace-nowrap">{title}</h3>
         </div>
         <div className="flex items-center gap-1 flex-wrap justify-end">
           {periods.map((p) => (
             <Button
               key={p}
               variant={activePeriod === p ? 'primary' : 'ghost'}
-              className="!px-2.5 !py-1 text-[11px] font-bold rounded-lg whitespace-nowrap active:scale-95"
+              className="!px-2 !py-1 text-[10px] md:text-[11px] font-bold rounded-lg whitespace-nowrap active:scale-95"
               onClick={() => setActivePeriod(p)}
             >
               {p}

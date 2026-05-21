@@ -30,11 +30,11 @@ export function Triggers() {
   };
 
   return (
-    <div className="flex flex-col gap-6 h-[calc(100vh-140px)] overflow-y-auto pr-2">
+    <div className="flex flex-col gap-6 overflow-y-auto pr-1 md:pr-2">
       {/* Title block */}
       <div>
-        <h3 className="text-[20px] font-bold text-[#111111]">Automation Panel</h3>
-        <p className="text-sm text-[#A0A0A0]">Manage instant WhatsApp auto-trigger actions for Oak & Chisel sales</p>
+        <h3 className="text-[18px] md:text-[20px] font-bold text-[#111111]">Automation Panel</h3>
+        <p className="text-xs md:text-sm text-[#A0A0A0]">Manage instant WhatsApp auto-trigger actions for Oak & Chisel sales</p>
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">

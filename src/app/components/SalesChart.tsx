@@ -16,22 +16,22 @@ const data = [
 export function SalesChart() {
   return (
     <div className="bg-white rounded-3xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
         <div>
-          <h3 className="text-[18px] font-semibold text-[#111111] mb-1">Sales Overview</h3>
-          <p className="text-sm text-[#A0A0A0]">Sales status in September 2023</p>
+          <h3 className="text-[16px] md:text-[18px] font-semibold text-[#111111] mb-1">Sales Overview</h3>
+          <p className="text-xs md:text-sm text-[#A0A0A0]">Sales status in September 2023</p>
         </div>
-        <div className="flex gap-2">
-          <button className="px-4 py-2 text-sm font-medium text-[#777777] rounded-xl hover:bg-[#F5F5F7]">
+        <div className="flex gap-1 md:gap-2 flex-wrap">
+          <button className="px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium text-[#777777] rounded-xl hover:bg-[#F5F5F7]">
             Today
           </button>
-          <button className="px-4 py-2 text-sm font-medium text-[#777777] rounded-xl hover:bg-[#F5F5F7]">
+          <button className="px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium text-[#777777] rounded-xl hover:bg-[#F5F5F7]">
             Weekly
           </button>
-          <button className="px-4 py-2 text-sm font-medium bg-[#6A4A3C] text-white rounded-xl">
+          <button className="px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium bg-[#6A4A3C] text-white rounded-xl">
             Monthly
           </button>
-          <button className="px-4 py-2 text-sm font-medium text-[#777777] rounded-xl hover:bg-[#F5F5F7]">
+          <button className="px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm font-medium text-[#777777] rounded-xl hover:bg-[#F5F5F7]">
             Yearly
           </button>
         </div>

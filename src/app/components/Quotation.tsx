@@ -143,68 +143,47 @@ export function Quotation() {
   });
 
   return (
-    <div className="flex flex-col gap-6 h-[calc(100vh-140px)] overflow-y-auto pr-2">
+    <div className="flex flex-col gap-6 overflow-y-auto pr-1 md:pr-2">
       {/* Title & Sub tabs */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#EAEAEA] pb-4">
-        <div>
-          <h3 className="text-[20px] font-bold text-[#111111]">Quotation Builder</h3>
-          <p className="text-sm text-[#A0A0A0]">Manage quotes and book orders for Oak & Chisel</p>
+      <div className="flex flex-col gap-4 border-b border-[#EAEAEA] pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h3 className="text-[18px] md:text-[20px] font-bold text-[#111111]">Quotation Builder</h3>
+            <p className="text-xs md:text-sm text-[#A0A0A0]">Manage quotes and book orders for Oak & Chisel</p>
+          </div>
         </div>
 
-        {/* 3 Buttons + Builder Selector */}
-        <div className="flex gap-2 bg-[#F5F5F7] p-1.5 rounded-2xl self-start md:self-auto shadow-sm">
+        {/* Sub-tab buttons — scrollable on mobile */}
+        <div className="flex gap-2 bg-[#F5F5F7] p-1.5 rounded-2xl shadow-sm overflow-x-auto scrollbar-none">
           <button
-            onClick={() => {
-              setActiveSubTab('Builder');
-              setSelectedQuoteDetail(null);
-            }}
-            className={`px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center gap-1.5 ${
-              activeSubTab === 'Builder'
-                ? 'bg-[#6A4A3C] text-white shadow-md'
-                : 'text-[#777777] hover:text-[#111111]'
+            onClick={() => { setActiveSubTab('Builder'); setSelectedQuoteDetail(null); }}
+            className={`px-3 md:px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer flex items-center gap-1.5 whitespace-nowrap flex-shrink-0 ${
+              activeSubTab === 'Builder' ? 'bg-[#6A4A3C] text-white shadow-md' : 'text-[#777777] hover:text-[#111111]'
             }`}
           >
             <Plus className="w-3.5 h-3.5" />
             Create New
           </button>
-          
           <button
-            onClick={() => {
-              setActiveSubTab('Draft');
-              setSelectedQuoteDetail(null);
-            }}
-            className={`px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${
-              activeSubTab === 'Draft'
-                ? 'bg-[#6A4A3C] text-white shadow-md'
-                : 'text-[#777777] hover:text-[#111111]'
+            onClick={() => { setActiveSubTab('Draft'); setSelectedQuoteDetail(null); }}
+            className={`px-3 md:px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer whitespace-nowrap flex-shrink-0 ${
+              activeSubTab === 'Draft' ? 'bg-[#6A4A3C] text-white shadow-md' : 'text-[#777777] hover:text-[#111111]'
             }`}
           >
             Drafts ({quotes.filter(q => q.status === 'Draft').length})
           </button>
-
           <button
-            onClick={() => {
-              setActiveSubTab('Sent');
-              setSelectedQuoteDetail(null);
-            }}
-            className={`px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${
-              activeSubTab === 'Sent'
-                ? 'bg-[#6A4A3C] text-white shadow-md'
-                : 'text-[#777777] hover:text-[#111111]'
+            onClick={() => { setActiveSubTab('Sent'); setSelectedQuoteDetail(null); }}
+            className={`px-3 md:px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer whitespace-nowrap flex-shrink-0 ${
+              activeSubTab === 'Sent' ? 'bg-[#6A4A3C] text-white shadow-md' : 'text-[#777777] hover:text-[#111111]'
             }`}
           >
             Sent ({quotes.filter(q => q.status === 'Sent').length})
           </button>
-
           <button
-            onClick={() => {
-              setActiveSubTab('Approved');
-              setSelectedQuoteDetail(null);
-            }}
-            className={`px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${
-              activeSubTab === 'Approved'
-                ? 'bg-[#6A4A3C] text-white shadow-md'
-                : 'text-[#777777] hover:text-[#111111]'
+            onClick={() => { setActiveSubTab('Approved'); setSelectedQuoteDetail(null); }}
+            className={`px-3 md:px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer whitespace-nowrap flex-shrink-0 ${
+              activeSubTab === 'Approved' ? 'bg-[#6A4A3C] text-white shadow-md' : 'text-[#777777] hover:text-[#111111]'
             }`}
           >
             Approved ({quotes.filter(q => q.status === 'Approved').length})
